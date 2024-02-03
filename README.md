@@ -1,3 +1,6 @@
+# Before you start
+Ensure you have node.js installed. If not, please visit https://nodejs.org/en/download/ to download and install it.
+
 ## How to run
 ```bash
 git clone git@github.com:acyanbird/rubberduck.git
