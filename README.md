@@ -4,7 +4,6 @@ Ensure you have node.js installed. If not, please visit https://nodejs.org/en/do
 ## How to run
 ```bash
 git clone git@github.com:acyanbird/rubberduck.git
-cd pillbug
 npm install
 npx vite # or npm run dev
 ```
