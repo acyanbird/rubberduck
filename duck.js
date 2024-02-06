@@ -2,7 +2,7 @@ import * as THREE from "three"
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 import {TrackballControls} from 'three/examples/jsm/controls/TrackballControls';
 
-import modelpath from "./assets/rubber_duck.glb";
+import modelpath from "./assets/Duck.glb";
 
 let loader = new GLTFLoader();
 let model;
@@ -23,12 +23,11 @@ function main() {
     scene = new THREE.Scene();
 
 
-    const fov = 45;
-    const aspect = 2; // the canvas default
+    const fov = 60;
     const near = 0.1;
     const far = 100;
     camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    camera.position.set(0, 60, 90);
+    camera.position.set(0, 2, 5);
     camera.lookAt(0, 0, 0);
 
 
@@ -44,7 +43,7 @@ function main() {
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
     // set background color
-    renderer.setClearColor(new THREE.Color("grey"));
+    renderer.setClearColor(new THREE.Color("skyblue"));
 
     createLights();
     createModel();
@@ -75,7 +74,7 @@ function onWindowResize() {
 function createLights() {
     let ambientLight = new THREE.AmbientLight(0xFFFFFF);
     ambientLight.name = "ambientLight";
-    ambientLight.intensity = 2;
+    ambientLight.intensity = 4;
     scene.add(ambientLight);
 }
 
@@ -83,6 +82,7 @@ function createModel() {
     loader.load(modelpath, function (gltf) {
         model = gltf.scene;
         model.position.set(0, 0, 0);
+        model.rotation.y = -Math.PI / 4;
         gltf.scene.traverse(function (node) {
             if (node.isMesh) {
                 node.castShadow = true;
