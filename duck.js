@@ -2,7 +2,7 @@ import * as THREE from "three"
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 import {TrackballControls} from 'three/examples/jsm/controls/TrackballControls';
 
-import modelpath from "./assets/pill.glb";
+import modelpath from "./assets/rubber_duck.glb";
 
 let loader = new GLTFLoader();
 let model;
