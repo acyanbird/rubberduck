@@ -28,7 +28,8 @@ function main() {
     const near = 0.1;
     const far = 100;
     camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    camera.position.set(0, 0, -20);
+    camera.position.set(0, 60, 90);
+    camera.lookAt(0, 0, 0);
 
 
     createControls(camera);
@@ -74,13 +75,13 @@ function onWindowResize() {
 function createLights() {
     let ambientLight = new THREE.AmbientLight(0xFFFFFF);
     ambientLight.name = "ambientLight";
+    ambientLight.intensity = 2;
     scene.add(ambientLight);
 }
 
 function createModel() {
     loader.load(modelpath, function (gltf) {
         model = gltf.scene;
-        model.scale.set(0.3, 0.3, 0.3);
         model.position.set(0, 0, 0);
         gltf.scene.traverse(function (node) {
             if (node.isMesh) {
